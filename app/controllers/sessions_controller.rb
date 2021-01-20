@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
             render json: @user
         else
             resp = {
-                error: 'Invalid credentials'
+                error: 'Invalid credentials',
+                details: @user.errors.full_messages
             }
             render json: resp, status: :unathorized
         end
